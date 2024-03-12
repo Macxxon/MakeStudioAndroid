@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "492978221583",
+    "firebase_url": "https://venus-finance-default-rtdb.firebaseio.com",
+    "project_id": "venus-finance",
+    "storage_bucket": "venus-finance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492978221583:android:2bb6a24d76d2ac470fe97a",
+        "android_client_info": {
+          "package_name": "com.make.develop.studio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxaGiWPr_Gtyi2JShIBvd-_wJs7iCTzeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
