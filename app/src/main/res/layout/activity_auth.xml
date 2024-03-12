@@ -106,6 +106,57 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layoutOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:weightSum="1"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:hintEnabled="true"
+                app:boxBackgroundColor="@android:color/white">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/otp_number_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Codigo Otp"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/otp_verify_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Verificar"
+        android:textSize="20dp"
+        app:cornerRadius="20dp"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutOtp" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/generate_btn"
         android:layout_width="match_parent"
