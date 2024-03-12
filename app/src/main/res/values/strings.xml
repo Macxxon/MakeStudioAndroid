@@ -5,4 +5,8 @@
     <string name="verifyNumber">Verifica tu número de teléfono</string>
     <string name="messageSend">Digita el número con el que deseas regisrarte.</string>
     <string name="otpTittle">Por favor, digita el codigo.</string>
+
+
+    <!--UI Home Strings-->
+    <string name="menu_home">Inicio</string>
 </resources>
