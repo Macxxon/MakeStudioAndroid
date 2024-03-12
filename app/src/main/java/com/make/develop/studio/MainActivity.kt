@@ -18,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 import com.make.develop.studio.databinding.ActivityMainBinding
 import com.make.develop.studio.databinding.PopupRegisterBinding
 import com.make.develop.studio.models.UserModel
+import com.make.develop.studio.ui.HomeActivity
 import com.make.develop.studio.utils.Constants
 
 
@@ -77,6 +78,8 @@ class MainActivity : AppCompatActivity() {
                                 val userModel = p0.getValue(UserModel::class.java)
                                 Constants.currentUser = userModel
 
+                                val intent = Intent(this@MainActivity, HomeActivity::class.java)
+                                startActivity(intent)
                             }
 
                     } else {
@@ -132,7 +135,8 @@ class MainActivity : AppCompatActivity() {
                                         Toast.LENGTH_LONG
                                     ).show()
 
-                                    //TODO: new Activity
+                                    val intent = Intent(this@MainActivity, HomeActivity::class.java)
+                                    startActivity(intent)
                                 }
                         }
                     }
