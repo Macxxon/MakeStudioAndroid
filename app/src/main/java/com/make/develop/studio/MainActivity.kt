@@ -112,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                 userModel.uid = user.uid
                 userModel.name = bindingPopUp.edtName.text.toString()
                 userModel.phone = bindingPopUp.edtPhone.text.toString()
+                userModel.balance = 0
 
                 userRef.child(user.uid)
                     .setValue(userModel)

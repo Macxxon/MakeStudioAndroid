@@ -13,5 +13,20 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/bills_fragment"
+        android:name="com.make.develop.studio.ui.bills.BillsFragment"
+        android:label="@string/menu_bills"
+        tools:layout="@layout/fragment_bills">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/models_payment_fragment"
+        android:name="com.make.develop.studio.ui.models_payment.ModelsPaymentFragment"
+        android:label="@string/menu_models_payment"
+        tools:layout="@layout/fragment_models_payment">
+
+    </fragment>
 
 </navigation>
