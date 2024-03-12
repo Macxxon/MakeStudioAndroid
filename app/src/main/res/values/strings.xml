@@ -11,4 +11,10 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_bills">Gastos</string>
     <string name="menu_models_payment">Pagos de Modelos</string>
+    <string name="empty_balance">0</string>
+    <string name="title_balance">Saldo Actual</string>
+    <string name="new_bill">Nuevo Gasto</string>
+    <string name="title_model_payment">Pago Modelos</string>
+    <string name="title_new_inventory_bill">Nuevo Gasto Inventario</string>
+    <string name="title_new_inventory">Nuevo Ingreso Inventario</string>
 </resources>

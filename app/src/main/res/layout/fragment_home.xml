@@ -7,46 +7,59 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Home Fragment"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:text="Usuario"
+        android:textStyle="bold"
+        android:layout_margin="15dp"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/txt_user" />
     <TextView
-        android:id="@+id/txt_balnce_number"
+        android:id="@+id/txt_balance_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="$$$$$$$$"
+        android:text="@string/empty_balance"
         android:textAlignment="center"
-        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/txt_balance_number" />
     <TextView
         android:id="@+id/txt_balance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Saldo Actual"
+        android:text="@string/title_balance"
         android:textAlignment="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_balnce_number" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_balance_number" />
 
     <Button
         android:id="@+id/btn_add_bill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Nuevo Gasto"
-        android:textSize="18dp"
+        android:text="@string/new_bill"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Pago Modelos"
-        android:textSize="18dp"
+        android:text="@string/title_model_payment"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_add_bill" />
@@ -68,8 +81,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
-        android:text="Nuevo Gasto Inventario"
-        android:textSize="18dp"
+        android:text="@string/title_new_inventory_bill"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,8 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Nuevo Ingreso Inventario"
-        android:textSize="18dp"
+        android:text="@string/title_new_inventory"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_add_bill_inventory" />
