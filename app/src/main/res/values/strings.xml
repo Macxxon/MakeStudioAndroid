@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Make Studio</string>
+
+    <!--UI Auth Strings-->
+    <string name="verifyNumber">Verifica tu número de teléfono</string>
+    <string name="messageSend">Digita el número con el que deseas regisrarte.</string>
+    <string name="otpTittle">Por favor, digita el codigo.</string>
 </resources>
