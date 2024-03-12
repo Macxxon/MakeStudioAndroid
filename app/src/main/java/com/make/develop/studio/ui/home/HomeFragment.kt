@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.make.develop.studio.databinding.FragmentHomeBinding
 
 class HomeFragment: Fragment() {
@@ -20,5 +21,16 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        binding.btnAddBill.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionNavHomeToBillsFragment())
+        }
+
+        binding.btnModelPayments.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionNavHomeToModelsPaymentFragment())
+        }
     }
 }
