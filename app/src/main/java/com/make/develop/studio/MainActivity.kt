@@ -3,17 +3,41 @@ package com.make.develop.studio
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.text.method.LinkMovementMethod
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.google.android.gms.common.api.Status
+import com.google.android.gms.common.internal.service.Common
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.OAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.R
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.make.develop.studio.databinding.ActivityMainBinding
+import com.make.develop.studio.databinding.PopupRegisterBinding
+import com.make.develop.studio.models.UserModel
+import com.make.develop.studio.utils.Constants
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var userRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = Firebase.auth
+
+        userRef = FirebaseDatabase.getInstance().getReference(Constants.USER_REFERENCE)
 
 
         firebaseAuth.addAuthStateListener {
@@ -36,8 +62,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkUserFromFirebase(user: FirebaseUser) {
-        /*dialog.show()
-        userRef!!.child(user!!.uid)
+        //dialog.show()
+        userRef.child(user.uid)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                     Toast.makeText(this@MainActivity, "" + p0.message, Toast.LENGTH_SHORT).show()
@@ -56,32 +82,81 @@ class MainActivity : AppCompatActivity() {
                                 ).show()
                             }
                             .addOnCompleteListener {
-                                Common.authorizeToken = it.result!!.token
+                                Constants.authorizeToken = it.result!!.token
 
 
-                                dialog!!.dismiss()
+                                //dialog!!.dismiss()
                                 val userModel = p0.getValue(UserModel::class.java)
-                                Common.currentUser = userModel
-                                if (prefManager.isFullRegister()) {
-                                    goToHomeActivity(userModel)
-                                }else {
-                                    val intent = Intent(this@MainActivity,MapsActivity::class.java)
-                                    intent.putExtra("register", true)
-                                    startActivity(intent)
-                                }
-
+                                Constants.currentUser = userModel
 
                             }
 
                     } else {
-                        dialog!!.dismiss()
-                        showRegisterDialog(user!!)
+                        //dialog!!.dismiss()
+                        showRegisterDialog(user)
                     }
 
                 }
-            })*/
+            })
 
     }
 
+    private fun showRegisterDialog(user: FirebaseUser) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Registro")
+        builder.setMessage("Por favor, llene todos los campos")
+
+        val bindingPopUp = PopupRegisterBinding.inflate(layoutInflater)
+
+        builder.setView(bindingPopUp.root)
+
+        bindingPopUp.edtPhone.setText(user.phoneNumber)
+
+        bindingPopUp.btnRegister.setOnClickListener {
+            if (TextUtils.isDigitsOnly(bindingPopUp.edtName.text.toString())) {
+                Toast.makeText(applicationContext, "Por favor, escribe tu nombre", Toast.LENGTH_LONG).show()
+            }else{
+
+                val userModel = UserModel()
+                userModel.uid = user.uid
+                userModel.name = bindingPopUp.edtName.text.toString()
+                userModel.phone = bindingPopUp.edtPhone.text.toString()
+
+                userRef.child(user.uid)
+                    .setValue(userModel)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            FirebaseAuth.getInstance().currentUser!!
+                                .getIdToken(true)
+                                .addOnFailureListener { t ->
+                                    Toast.makeText(
+                                        this@MainActivity,
+                                        "" + t.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                                .addOnCompleteListener {
+                                    Constants.authorizeToken = it.result.token
+
+                                    Toast.makeText(
+                                        this@MainActivity,
+                                        "Felicidades! Registro Exitoso!",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+
+                                    //TODO: new Activity
+                                }
+                        }
+                    }
+            }
+
+
+        }
+
+        val dialog = builder.create()
+
+        dialog.show()
+
+    }
 
 }
