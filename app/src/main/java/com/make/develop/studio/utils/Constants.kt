@@ -7,6 +7,8 @@ import java.text.DecimalFormat
 
 object Constants {
     const val USER_REFERENCE = "Users"
+    const val MODELS_PAYMENT_REFERENCE = "ModelsPayments"
+
     var authorizeToken: String?=null
     var currentUser: UserModel?=null
 

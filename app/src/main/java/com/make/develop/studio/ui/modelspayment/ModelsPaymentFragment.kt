@@ -29,9 +29,9 @@ class ModelsPaymentFragment: Fragment() {
     inner class ModelsViewHolder(view: View) : RecyclerViewHolder<ModelsInfoModel>(view) {
         val binding = ItemModelPaymentBinding.bind(view)
         fun bind(item: ModelsInfoModel, pos: Int) {
-            binding.txtName.text = item.name
-            binding.txtNickname.text = item.nickname
-            binding.txtPayment.text = item.payment.toString()
+            binding.txtName.text = "Nombre: ${item.name}"
+            binding.txtNickname.text = "Nickname: ${item.nickname}"
+            binding.txtPayment.text = "Pago: ${item.payment}"
         }
     }
 
@@ -57,8 +57,9 @@ class ModelsPaymentFragment: Fragment() {
 
     private fun setupObservers() {
         viewModel.modelsPayment.observe(viewLifecycleOwner) {modelsPayment->
-            binding.textView2.text = modelsPayment.rangeDate
-            modelsAdapter.submitList(modelsPayment.models)
+            binding.txtViewRangeDate.text = "Rango: ${modelsPayment.rangeDate}"
+            binding.txtTotalPayment.text = "Total: ${modelsPayment.totalPayment}"
+            modelsAdapter.submitList(modelsPayment.Models)
         }
     }
 
