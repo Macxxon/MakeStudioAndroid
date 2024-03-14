@@ -21,4 +21,7 @@
     <string name="edt_concept">Concepto</string>
     <string name="edt_value">Valor</string>
     <string name="btn_bills_save">Guardar</string>
+    <string name="btn_txt_payment_completed">Pago Finalizado</string>
+    <string name="txt_total_payment">Total:</string>
+    <string name="txt_range_dates_paid">Rango fechas: 25-05-2021 al 27-05-2021</string>
 </resources>

@@ -7,10 +7,12 @@
 
     <TextView
         android:id="@+id/txtView_range_date"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Rango fechas: 25-05-2021 al 27-05-2021"
+        android:text="@string/txt_range_dates_paid"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="20sp"
@@ -36,17 +38,38 @@
 
     </ScrollView>
 
-    <TextView
-        android:id="@+id/txt_total_payment"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total:"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#000"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.998">
 
+        <TextView
+            android:id="@+id/txt_total_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:padding="9dp"
+            android:text="@string/txt_total_payment"
+            android:textColor="#000"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_save_bill_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/btn_finish_color"
+            android:text="@string/btn_txt_payment_completed"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
