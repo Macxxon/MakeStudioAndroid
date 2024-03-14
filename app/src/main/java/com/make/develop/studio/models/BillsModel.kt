@@ -6,4 +6,5 @@ data class BillsModel(
     var payment_user:String?=null,
     var paid:Boolean=false,
     var payment_date:Long?=null,
+    var user_paid:String?=null,
 )

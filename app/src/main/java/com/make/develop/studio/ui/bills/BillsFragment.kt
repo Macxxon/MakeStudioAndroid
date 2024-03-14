@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.make.develop.studio.databinding.FragmentBillsBinding
 import com.make.develop.studio.models.BillsModel
+import com.make.develop.studio.utils.Constants
 
 class BillsFragment: Fragment() {
 
@@ -62,7 +63,8 @@ class BillsFragment: Fragment() {
             total_payment = binding.edtValue.text.toString().toInt(),
             payment_user = binding.spinnerChooseUserBill.selectedItem.toString(),
             paid = true,
-            payment_date = estimatedServerTimeInMs
+            payment_date = estimatedServerTimeInMs,
+            user_paid = Constants.currentUser?.uid
         )
     }
 }
