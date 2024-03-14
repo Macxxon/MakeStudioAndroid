@@ -17,4 +17,8 @@
     <string name="title_model_payment">Pago Modelos</string>
     <string name="title_new_inventory_bill">Nuevo Gasto Inventario</string>
     <string name="title_new_inventory">Nuevo Ingreso Inventario</string>
+    <string name="txt_title_bills">Añadir Gastos</string>
+    <string name="edt_concept">Concepto</string>
+    <string name="edt_value">Valor</string>
+    <string name="btn_bills_save">Guardar</string>
 </resources>
