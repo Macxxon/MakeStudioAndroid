@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+.idea
+.gitignore
+.idea/sonarlint/issuestore
+.idea/gradle.xml
+.idea/deploymentTargetDropDown.xml
+.idea/migrations.xml
+.idea\sonarlint
