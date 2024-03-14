@@ -99,6 +99,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_add_bill_inventory" />
 
+    <Button
+        android:id="@+id/btn_list_bills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_list_bills"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_revenue_inventory" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

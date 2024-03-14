@@ -24,4 +24,5 @@
     <string name="btn_txt_payment_completed">Pago Finalizado</string>
     <string name="txt_total_payment">Total:</string>
     <string name="txt_range_dates_paid">Rango fechas: 25-05-2021 al 27-05-2021</string>
+    <string name="title_list_bills">Mis Gastos</string>
 </resources>
