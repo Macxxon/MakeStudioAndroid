@@ -69,4 +69,9 @@ dependencies {
     //KIEL: RecyclerView Adatper DSL
     implementation 'me.ibrahimyilmaz:kiel:1.2.1'
 
+    // Moshi for parsing the JSON format
+    def version_moshi = '1.8.0'
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
 }
