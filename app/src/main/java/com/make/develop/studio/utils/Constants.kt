@@ -4,10 +4,12 @@ import com.make.develop.studio.models.UserModel
 import java.lang.StringBuilder
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import java.util.Random
 
 object Constants {
     const val USER_REFERENCE = "Users"
     const val MODELS_PAYMENT_REFERENCE = "ModelsPayments"
+    const val BILLS_REFERENCE = "Bills"
 
     var authorizeToken: String?=null
     var currentUser: UserModel?=null
@@ -22,4 +24,12 @@ object Constants {
             "$ 0"
         }
     }
+
+    fun createBillNumber(): String {
+        return StringBuilder()
+            .append(System.currentTimeMillis())
+            .append(Math.abs(Random().nextInt()))
+            .toString()
+    }
+
 }
