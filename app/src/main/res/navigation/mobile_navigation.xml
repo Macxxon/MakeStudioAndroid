@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_nav_home_to_models_payment_fragment"
             app:destination="@id/models_payment_fragment" />
+        <action
+            android:id="@+id/action_nav_home_to_list_bills_nav"
+            app:destination="@id/list_bills_nav" />
     </fragment>
 
     <fragment
@@ -32,6 +35,14 @@
         android:name="com.make.develop.studio.ui.modelspayment.ModelsPaymentFragment"
         android:label="@string/menu_models_payment"
         tools:layout="@layout/fragment_models_payment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/list_bills_nav"
+        android:name="com.make.develop.studio.ui.listbills.ListBillsFragment"
+        android:label="@string/menu_list_bills"
+        tools:layout="@layout/fragment_list_bills">
 
     </fragment>
 

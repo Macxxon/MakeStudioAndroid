@@ -39,6 +39,10 @@ class HomeFragment: Fragment() {
         binding.btnModelPayments.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionNavHomeToModelsPaymentFragment())
         }
+
+        binding.btnListBills.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionNavHomeToListBillsNav())
+        }
     }
 
     private fun setupObservers() {
