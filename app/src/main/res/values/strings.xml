@@ -15,8 +15,8 @@
     <string name="title_balance">Saldo Actual</string>
     <string name="new_bill">Nuevo Gasto</string>
     <string name="title_model_payment">Pago Modelos</string>
-    <string name="title_new_inventory_bill">Nuevo Gasto Inventario</string>
-    <string name="title_new_inventory">Nuevo Ingreso Inventario</string>
+    <string name="title_new_inventory_bill">Nuevo Gasto\n Inventario</string>
+    <string name="title_new_inventory">Nuevo Ingreso\n Inventario</string>
     <string name="txt_title_bills">Añadir Gastos</string>
     <string name="edt_concept">Concepto</string>
     <string name="edt_value">Valor</string>

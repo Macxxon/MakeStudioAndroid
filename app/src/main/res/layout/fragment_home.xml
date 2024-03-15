@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,11 +9,11 @@
         android:id="@+id/txt_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Usuario"
-        android:textStyle="bold"
         android:layout_margin="15dp"
         android:gravity="center_horizontal"
+        android:text="Usuario"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,24 +23,27 @@
         android:layout_height="2dp"
         android:background="@color/gray"
         app:layout_constraintTop_toBottomOf="@+id/txt_user" />
+
     <TextView
         android:id="@+id/txt_balance_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/empty_balance"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:layout_marginTop="10dp"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_user" />
 
     <View
+        android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/gray"
         app:layout_constraintTop_toBottomOf="@+id/txt_balance_number" />
+
     <TextView
         android:id="@+id/txt_balance"
         android:layout_width="match_parent"
@@ -53,60 +55,198 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_balance_number" />
 
-    <Button
-        android:id="@+id/btn_add_bill"
-        android:layout_width="match_parent"
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/new_bill"
-        android:textSize="18sp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_balance" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_balance"
+        app:layout_constraintVertical_bias="0.103">
 
-    <Button
-        android:id="@+id/btn_model_payments"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/title_model_payment"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_bill" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
 
-    <Button
-        android:id="@+id/btn_add_bill_inventory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:text="@string/title_new_inventory_bill"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_bill" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_add_revenue_inventory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/title_new_inventory"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_bill_inventory" />
+                <ImageButton
+                    android:id="@+id/btn_add_bill"
+                    android:layout_width="130dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/new_bill"
+                    android:onClick="onClick"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/baseline_add_24" />
 
-    <Button
-        android:id="@+id/btn_list_bills"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title_list_bills"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_revenue_inventory" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_bill"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_model_payments"
+                    android:layout_width="130dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/title_model_payment"
+                    android:onClick="onClick"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/payments_24px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_model_payment"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_add_bill_inventory"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_margin="10dp"
+                    android:background="@null"
+                    android:contentDescription="@string/title_new_inventory_bill"
+                    android:onClick="onClick"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:text="@string/title_new_inventory_bill"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_new_inventory_bill"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_add_revenue_inventory"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_margin="10dp"
+                    android:background="@null"
+                    android:contentDescription="@string/title_new_inventory"
+                    android:onClick="onClick"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:text="@string/title_new_inventory"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_new_inventory"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_list_bills"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="10dp"
+                    android:background="@null"
+                    android:contentDescription="@string/title_list_bills"
+                    android:onClick="onClick"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/baseline_account_balance_wallet_24"
+                    android:text="@string/title_list_bills"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_list_bills"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
