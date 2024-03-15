@@ -42,6 +42,10 @@ class BillsFragment: Fragment() {
         binding.spinnerChooseUserBill.adapter = adapter
 
         binding.btnSaveBill.setOnClickListener {
+            if(binding.edtReference.text?.isEmpty()!! || binding.edtValue.text?.isEmpty()!!){
+                Toast.makeText(requireContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             viewModel.postNewBill(createRequest())
         }
     }
