@@ -9,6 +9,7 @@ import java.util.Random
 object Constants {
     const val USER_REFERENCE = "Users"
     const val MODELS_PAYMENT_REFERENCE = "ModelsPayments"
+    const val MODELS_REFERENCE = "Models"
     const val BILLS_REFERENCE = "Bills"
 
     var authorizeToken: String?=null
