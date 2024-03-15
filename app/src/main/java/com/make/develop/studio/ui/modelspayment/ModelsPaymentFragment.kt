@@ -29,16 +29,17 @@ class ModelsPaymentFragment: Fragment() {
     }
 
     inner class ModelsViewHolder(view: View) : RecyclerViewHolder<ModelsInfoModel>(view) {
-        val binding = ItemModelPaymentBinding.bind(view)
+        val bindingItem = ItemModelPaymentBinding.bind(view)
         fun bind(item: ModelsInfoModel, pos: Int) {
-            if(item.status == 1) binding.btnPaid.isEnabled = false
+            if(item.status == 1) bindingItem.btnPaid.isEnabled = false
 
-            binding.txtName.text = "Nombre: ${item.name}"
-            binding.txtNickname.text = "Nickname: ${item.nickname}"
-            binding.txtPayment.text = "Pago: ${item.payment}"
-            binding.btnPaid.setOnClickListener {
+            bindingItem.txtName.text = "Nombre: ${item.name}"
+            bindingItem.txtNickname.text = "Nickname: ${item.nickname}"
+            bindingItem.txtPayment.text = "Pago: ${item.payment}"
+            bindingItem.btnPaid.setOnClickListener {
+                binding.progressBar.visibility = View.VISIBLE
                 viewModel.updateModelPayment(item,pos)
-                binding.btnPaid.isEnabled = false
+                bindingItem.btnPaid.isEnabled = false
             }
         }
     }
@@ -56,6 +57,8 @@ class ModelsPaymentFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.progressBar.visibility = View.VISIBLE
+
         viewModel.getModelsPayment()
 
         setupListeners()
@@ -69,6 +72,7 @@ class ModelsPaymentFragment: Fragment() {
             binding.txtViewRangeDate.text = "Rango: ${modelsPayment.rangeDate}"
             binding.txtTotalPayment.text = "Total: ${modelsPayment.totalPayment}"
             modelsAdapter.submitList(modelsPayment.Models)
+            binding.progressBar.visibility = View.GONE
         }
         
         viewModel.isSuccessModelPayment.observe(viewLifecycleOwner) {isSuccess->
@@ -76,11 +80,13 @@ class ModelsPaymentFragment: Fragment() {
                 Toast.makeText(requireContext(), "Tu pago ha sido registrado!", Toast.LENGTH_SHORT).show()
                 viewModel.setSuccessModelPayment(false)
                 viewModel.getModelsPayment()
+                binding.progressBar.visibility = View.GONE
             }
         }
 
         viewModel.isSuccessFinal.observe(viewLifecycleOwner) {isSuccess->
             if(isSuccess){
+                binding.progressBar.visibility = View.GONE
                 Toast.makeText(requireContext(), "Cuenta semanal cerrada!", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
@@ -92,6 +98,7 @@ class ModelsPaymentFragment: Fragment() {
 
         binding.btnSaveBillTotal.setOnClickListener {
             if(modelsAdapter.currentList.all { it.status == 1 }){
+                binding.progressBar.visibility = View.VISIBLE
                 viewModel.updateStatusModelsPayment()
             }else{
                 Toast.makeText(requireContext(), "Aun hay modelos sin pagar", Toast.LENGTH_SHORT).show()
