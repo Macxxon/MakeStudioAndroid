@@ -87,11 +87,12 @@
                     android:id="@+id/btn_add_bill"
                     android:layout_width="130dp"
                     android:layout_height="110dp"
-                    android:background="@null"
+                    android:background="@color/white"
                     android:contentDescription="@string/new_bill"
                     android:onClick="onClick"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/baseline_add_24" />
+                    android:src="@drawable/baseline_add_24"
+                    app:tint="@color/green" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -124,7 +125,8 @@
                     android:contentDescription="@string/title_model_payment"
                     android:onClick="onClick"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/payments_24px" />
+                    android:src="@drawable/ic_baseline_payments_24"
+                    app:tint="@color/primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -233,9 +235,10 @@
                     android:contentDescription="@string/title_list_bills"
                     android:onClick="onClick"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/baseline_account_balance_wallet_24"
+                    android:src="@drawable/ic_baseline_account_balance_wallet_24"
                     android:text="@string/title_list_bills"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:tint="@color/orange"/>
 
                 <TextView
                     android:layout_width="wrap_content"
