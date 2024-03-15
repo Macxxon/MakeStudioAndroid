@@ -10,6 +10,7 @@ import com.make.develop.studio.R
 import com.make.develop.studio.databinding.FragmentListBillsBinding
 import com.make.develop.studio.databinding.ItemBillBinding
 import com.make.develop.studio.models.BillsModel
+import com.make.develop.studio.utils.Constants
 import me.ibrahimyilmaz.kiel.adapterOf
 import me.ibrahimyilmaz.kiel.core.RecyclerViewHolder
 
@@ -31,7 +32,7 @@ class ListBillsFragment : Fragment(){
         val binding = ItemBillBinding.bind(view)
         fun bind(item: BillsModel, pos: Int) {
             binding.txtConcept.text = "Nombre: ${item.concept}"
-            binding.txtPayment.text = "Nickname: ${item.total_payment}"
+            binding.txtPayment.text = "Nickname: ${Constants.formatPriceInPesos(item.total_payment?.toDouble()?:0.0)}"
             binding.txtPaymentUser.text = "Pago: ${item.payment_user}"
         }
     }

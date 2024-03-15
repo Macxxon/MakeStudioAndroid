@@ -12,6 +12,7 @@ import com.make.develop.studio.R
 import com.make.develop.studio.databinding.FragmentModelsPaymentBinding
 import com.make.develop.studio.databinding.ItemModelPaymentBinding
 import com.make.develop.studio.models.ModelsInfoModel
+import com.make.develop.studio.utils.Constants
 import me.ibrahimyilmaz.kiel.adapterOf
 import me.ibrahimyilmaz.kiel.core.RecyclerViewHolder
 
@@ -35,7 +36,7 @@ class ModelsPaymentFragment: Fragment() {
 
             bindingItem.txtName.text = "Nombre: ${item.name}"
             bindingItem.txtNickname.text = "Nickname: ${item.nickname}"
-            bindingItem.txtPayment.text = "Pago: ${item.payment}"
+            bindingItem.txtPayment.text = "Pago: ${ Constants.formatPriceInPesos(item.payment?.toDouble()?:0.0)}"
             bindingItem.btnPaid.setOnClickListener {
                 binding.progressBar.visibility = View.VISIBLE
                 viewModel.updateModelPayment(item,pos)
@@ -70,7 +71,7 @@ class ModelsPaymentFragment: Fragment() {
         viewModel.modelsPayment.observe(viewLifecycleOwner) {modelsPayment->
             if(modelsPayment.status == 1) binding.btnSaveBillTotal.isEnabled = false
             binding.txtViewRangeDate.text = "Rango: ${modelsPayment.rangeDate}"
-            binding.txtTotalPayment.text = "Total: ${modelsPayment.totalPayment}"
+            binding.txtTotalPayment.text = "Total: ${Constants.formatPriceInPesos(modelsPayment.totalPayment?.toDouble()?:0.0)}"
             modelsAdapter.submitList(modelsPayment.Models)
             binding.progressBar.visibility = View.GONE
         }
