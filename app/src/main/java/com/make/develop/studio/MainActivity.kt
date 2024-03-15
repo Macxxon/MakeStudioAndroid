@@ -3,6 +3,7 @@ package com.make.develop.studio
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkUserFromFirebase(user: FirebaseUser) {
-        //dialog.show()
+        binding.progressBar.visibility = View.VISIBLE
         userRef.child(user.uid)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -74,16 +75,17 @@ class MainActivity : AppCompatActivity() {
                                 Constants.authorizeToken = it.result!!.token
 
 
-                                //dialog!!.dismiss()
+                                binding.progressBar.visibility = View.GONE
                                 val userModel = p0.getValue(UserModel::class.java)
                                 Constants.currentUser = userModel
 
                                 val intent = Intent(this@MainActivity, HomeActivity::class.java)
                                 startActivity(intent)
+                                finish()
                             }
 
                     } else {
-                        //dialog!!.dismiss()
+                        binding.progressBar.visibility = View.GONE
                         showRegisterDialog(user)
                     }
 

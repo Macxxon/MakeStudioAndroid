@@ -26,4 +26,6 @@
     <string name="txt_range_dates_paid">Rango fechas: 25-05-2021 al 27-05-2021</string>
     <string name="title_list_bills">Mis Gastos</string>
     <string name="menu_list_bills">Mis Gastos</string>
+    <string name="txt_error_post_notification">Debes aceptar los permisos\n</string>
+    <string name="goto_settings">Ir a configuraciones</string>
 </resources>
