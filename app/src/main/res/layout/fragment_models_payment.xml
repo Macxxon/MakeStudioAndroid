@@ -14,6 +14,7 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textColor="#000"
+        android:text="xd"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,8 +23,9 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtView_range_date">
@@ -38,14 +40,13 @@
     </ScrollView>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        app:layout_constraintVertical_bias="0.998">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/txt_total_payment"
@@ -55,7 +56,7 @@
             android:padding="9dp"
             android:text="@string/txt_total_payment"
             android:textColor="#000"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <Button
