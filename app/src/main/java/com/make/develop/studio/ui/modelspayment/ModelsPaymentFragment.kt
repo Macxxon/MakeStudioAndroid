@@ -40,7 +40,6 @@ class ModelsPaymentFragment: Fragment() {
             bindingItem.btnPaid.setOnClickListener {
                 binding.progressBar.visibility = View.VISIBLE
                 viewModel.updateModelPayment(item,pos)
-                bindingItem.btnPaid.isEnabled = false
             }
         }
     }
@@ -72,7 +71,8 @@ class ModelsPaymentFragment: Fragment() {
             if(modelsPayment.status == 1) binding.btnSaveBillTotal.isEnabled = false
             binding.txtViewRangeDate.text = "Rango: ${modelsPayment.rangeDate}"
             binding.txtTotalPayment.text = "Total: ${Constants.formatPriceInPesos(modelsPayment.totalPayment?.toDouble()?:0.0)}"
-            modelsAdapter.submitList(modelsPayment.Models)
+            val modelsList = modelsPayment.Models?.values?.toList()
+            modelsAdapter.submitList(modelsList)
             binding.progressBar.visibility = View.GONE
         }
         

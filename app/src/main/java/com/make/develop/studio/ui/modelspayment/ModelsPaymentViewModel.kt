@@ -50,7 +50,7 @@ class ModelsPaymentViewModel: ViewModel(){
             .getReference(Constants.MODELS_PAYMENT_REFERENCE)
             .child(_modelsPayment.value?.key!!)
             .child(Constants.MODELS_REFERENCE)
-            .child(pos.toString())
+            .child(model.nickname!!)
             .updateChildren(updateData)
             .addOnCompleteListener { task->
                 if(task.isSuccessful){
